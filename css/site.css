@@ -1,0 +1,1125 @@
+:root {
+    --primary_color: #350d91;
+    --secondary_color: #ddd0fb;
+    /*--body_background: #fafafa;*/
+    --text: #050505;
+    --accent: #5516e9;
+    --body_background: white;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: var(--body_background);
+}
+
+
+.stock-card {
+    min-width: 200px;
+    padding: 10px;
+    border: 1px solid white;
+    background-color: white;
+    color: white;
+}
+
+.grew {
+    color: green;
+}
+
+.dropped {
+    color: red;
+}
+
+
+.menu {
+    text-align: center;
+}
+
+
+.menu a:hover {
+        background-color: #c0aaf3;
+        color: white;
+}
+
+
+#currentBalanceDiv {
+    align-items: center;
+    justify-content: center;
+    border: solid;
+    border-color: #d3cbe5;
+    background-color: #f6dfd5;
+    border-width: 2px;
+    font-size: 24px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 7px;
+}
+
+
+#currentSavings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#currentBalance {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+}
+
+
+#sidebar {
+    height: 100%;
+    background-color: var(--secondary_color);
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    grid-column: span 2;
+}
+
+
+.menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s;
+}
+
+
+#content {
+    margin-left: 25px;
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+.container-layout {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+}
+
+.main {
+    grid-column: span 11;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.navbar-brand {
+    font-size: 30px;
+    color: var(--accent);
+    margin-left: 50%;
+}
+
+nav {
+    background-color: var(--body_background);
+}
+
+
+.main.Login-Page {
+    background-image: url('/img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    grid-column: span 13;
+}
+
+.modal-content {
+    background-color: var(--secondary_color);
+}
+
+.container-footer {
+    padding-top: 90%;
+}
+
+.background {
+    background-color: var(--secondary_color);
+}
+
+.newIncomeDiv {
+    border: solid 1px;
+    border-color: #e3dcf4;
+    border-width: 2px;
+    border-radius: 11px;
+    width: 300px;
+    margin-top: 8px;
+    font-size: 20px;
+    background-color: white;
+    box-shadow: 2px 2px 6px #bebebe;
+    position: relative;
+}
+
+.newCollabIncomeDiv {
+    border: solid;
+    border-color: var(--primary_color);
+    border-width: 2px;
+    border-radius: 11px;
+    width: 100%;
+    margin-top: 8px;
+    font-size: 20px;
+    background-color: white;
+    box-shadow: 2px 2px 6px #bebebe;
+    position: relative;
+}
+
+#pbTitleDiv{
+    padding:20px;
+}
+
+#pbTitle {
+    font-size: 30px;
+}
+
+#incomeDetailsTitle {
+    font-size: 30px;
+    padding: 20px;
+}
+
+
+.close {
+    display: inline;
+    cursor: pointer;
+    position: absolute;
+    right: 0%;
+}
+
+.close:hover {
+    color: black;
+ }
+
+#transactionTable {
+    background-color: var(--secondary_color);
+    font-weight: 600;
+    width:80%;
+}
+
+.card {
+    margin-top: 20px;
+    box-shadow: 5px 5px 10px var(--secondary_color);
+}
+
+}
+
+.piggyBankStatus {
+    margin-top: 210px;
+}
+
+.headerPB {
+    margin-bottom: 20px;
+}
+
+.headerPB::first-letter {
+   text-transform: uppercase;
+}
+
+#incomeSidebar {
+    height: 100%;
+    background-color: var(--secondary_color);
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    grid-column-start: 13;
+    width:256px;
+}
+
+
+
+#spendingSidebar {
+    height: 100%;
+    background-color: var(--secondary_color);
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    grid-column-start: 13;
+    width: 256px;
+}
+
+
+#transactionSideBar {
+    height: 100%;
+    background-color: var(--secondary_color);
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    grid-column-start: 13;
+    width: 256px;
+}
+
+#latestIncomesText {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: serif;
+    background-color: #c0aaf3;
+}
+
+
+#upcomingIncomesText {
+    font-size: 24px;
+    text-align: center;
+}
+
+
+#upcomingSpendingsText {
+    font-size: 24px;
+    text-align: center;
+}
+
+#incomeHistoryContainer {
+    margin-left: 5px;
+    min-height: 50%;
+    border-bottom: 1px solid;
+}
+
+#upcomingIncomes {
+    margin-left: 5px;
+    margin-top: 15px;
+    min-height: 50%;
+}
+
+
+#upcomingSpendings {
+    margin-left: 5px;
+    margin-top: 15px;
+    min-height: 50%;
+}
+
+
+.spendingContainer {
+    /*background-color: #d6d4d8;*/
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    margin: 20px auto;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    height: max-content;
+}
+
+
+#appName {
+    font-size: 40px;
+    color: #38148c;
+    /*border-bottom: solid thin;*/
+    border-bottom-color: black;
+    background-color:#c0aaf3;
+}
+
+
+#appName:hover {
+   background-color: #c0aaf3;
+}
+
+#appNameLink:hover {
+    color: #38148c;
+}
+
+
+#menuLinks {
+    margin-top: 20px;
+}
+
+#currentBalanceText {
+    font-size: 30px;
+    margin: 15px;
+}
+
+
+#currentSavingsText {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#currentBalanceSpan {
+    font-size: 45px;
+}
+
+#currentSavingsSpan {
+    font-size: 25px;
+}
+
+#helloUser {
+    font-size: 25px;
+}
+
+
+#logOut {
+    font-size: 21px;
+    margin-right: 0;
+}
+
+.deleteButton {
+    background-color: #98436e;
+}
+
+
+.editButton {
+    background-color: #559091;
+}
+
+
+.deleteButtonDiv {
+    margin: 10px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.editButtonDiv {
+    margin:10px;
+    display: inline-block;
+    margin-left:5px;
+}
+
+.spendingAmount {
+    font-size: 25px;
+    /*margin-left:-30px;*/
+}
+
+
+.spendingAmountSpan {
+    margin-left:  33px;
+/**/    /*float: right;*/
+    font-weight: 700;
+    color: #ec1515;
+}
+
+
+
+
+.spendingDescription {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+
+#moneyIcon {
+    font-size: 50px;
+}
+
+
+#piggyBankIcon {
+    font-size: 35px;
+ }
+
+
+.modal-title {
+    margin-left: 36%;
+    color: white;
+}
+
+#cancelPiggyBankButton {
+    margin-right: 30px;
+}
+
+.latestIncomes {
+    border: solid;
+    border-color: #bbb7c2;
+    background-color: #fafafa;
+    border-width: 2px;
+    margin-top: 2px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 3px;
+    margin:5px;
+}
+
+
+
+.upcomingIncomes {
+    border: solid;
+    border-color: #bbb7c2;
+    background-color: #fafafa;
+    border-width: 2px;
+    margin-top: 2px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 3px;
+    margin: 5px;
+}
+
+
+
+
+.upcomingSpendings {
+    border: solid;
+    border-color: #bbb7c2;
+    background-color: #fafafa;
+    border-width: 2px;
+    margin-top: 2px;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 3px;
+    margin: 5px;
+}
+
+
+.latestIncomeName {
+    margin-left: 10px;
+    color: black;
+}
+
+.latestIncomeSum {
+    color: green;
+    float: right;
+    font-size:16px;
+}
+
+.upcomingIncomeName {
+    margin-left: 10px;
+    color: black;
+}
+
+
+.upcomingSpendingName {
+    margin-left: 10px;
+    color: black;
+}
+
+.upcomingIncomeSum {
+    color: green;
+    float: right;
+}
+
+
+
+.upcomingSpendingSum {
+    color: red;
+    float: right;
+}
+
+
+#stocksTitle {
+    text-align: initial;
+    margin-left: 94px;
+    font-weight: 600;
+}
+
+#stockDataSection {
+    font-weight: 700;
+    background-color: white;
+    max-width: 600px;
+}
+
+#upcomingEvents {
+    text-align: initial;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #9893f6;
+}
+
+
+.btn-cancel {
+    background-color: white;
+    color: black;
+}
+
+    .btn-cancel:hover {
+        background-color: #c4abbe;
+    }
+
+label {
+    float: left;
+    margin-right: 14px;
+    margin-left: 16px;
+    font-size: 15px;
+
+}
+
+
+#breakPB {
+    margin-left: 18%;
+}
+
+
+.modal-header {
+    background-color: var(--accent);
+}
+
+
+#createIncomeTitle {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#incomeForm {
+    margin-top: 20px;
+}
+
+.spendingTitle {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#notificationsContainer {
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.pbEvent {
+    margin-bottom: 5px;
+    border: 1px solid;
+    width: 50%;
+    border-radius: 10px;
+    background-color: #ddd0fb;
+    font-weight: 500;
+    font-size: 17px;
+    border-color: #cebaf1;
+}
+
+#almostDonePB {
+    text-align: initial;
+    margin-bottom: 15px;
+}
+
+#pbButtons {
+    margin-bottom: 10px;
+}
+
+
+.main.Spendings-Page {
+    height: calc(100vh - 25px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.main.Spendings-Page main {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+}
+
+.main.Spendings-Page main > #content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+}
+
+.main.Spendings-Page main > #content > .text-center {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+}
+
+.main.Spendings-Page .spendings-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+}
+
+
+
+.main.PiggyBank-Page {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    grid-column: span 13;
+}
+
+    .main.PiggyBank-Page main {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+       
+    }
+
+        .main.PiggyBank-Page main > #content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+            .main.PiggyBank-Page main > #content > .text-center {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+    .main.PiggyBank-Page .spendings-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+#spendingsContainer {
+    flex-grow: 1;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5px;
+}
+
+
+#usernameError{
+    color:red;
+}
+
+
+#friendsContainer {
+    height: 100%;
+    background-color: var(--secondary_color);
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    position: fixed;
+    bottom: 0;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    grid-column-start: 13;
+    max-width: 253px;
+}
+
+.friendName{
+    font-size:20px;
+    margin-left:35px;
+}
+
+#friendsTitle {
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-top:15px;
+}
+
+#addFriendInput {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#spendingPieChart {
+    margin-bottom: 100px;
+    max-width:60%;
+}
+
+#loginTitle{
+    margin-bottom: 25px;
+}
+
+.loginLabel {
+    margin-left: auto;
+    font-size: 20px;
+}
+
+.registerButtons{
+    right:0;
+}
+
+#collabTitle{
+    font-size:22px;
+}
+
+#currentCollaborators {
+    float: right;
+    margin-right: 13px;
+}
+
+.collaborators {
+    font-size: 20px;
+    position: relative;
+    border: solid;
+    border-radius: 5px;
+    width: 150px;
+    background: white;
+    border-color: white;
+    margin-left: 30px;
+    margin-bottom : 10px;
+}
+
+#collabSuggestions {
+    display: flex;
+    margin-left: 5px;
+}
+
+#addCollab{
+    margin-left:5px;
+}
+
+#cancelPBFriendButton{
+    margin-bottom: 10px;
+}
+
+#cancelCollabButton{
+    display:flex;
+    justify-content:center;
+}
+
+#birthdaysTitle {
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-top:30px;
+}
+
+
+#birthdaysTitle2 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.birthday {
+    font-size: 20px;
+    margin-left: 35px;
+}
+
+#incomesTitle{
+    font-size:30px;
+}
+
+#personalPB {
+    font-size: 30px;
+    margin: 30px;
+}
+
+#collabPB {
+    font-size: 30px;
+    margin:50px;
+}
+
+#assocSum{
+    font-size:15px;
+}
+
+#assocIncomes {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+#associatedIncomes {
+    display: flex;
+    justify-content: center;
+}
+
+#addIncomeForm {
+    display: flex;
+    justify-content: center;
+    background: white;
+    border-radius: 12.5px;
+    margin: 5px;
+    border: 1px solid #b7b9ba;
+    align-items:baseline;
+}
+
+
+.container {
+    margin-left: 0;
+    display: flex;
+    justify-content: right;
+}
+
+.registerLabel{
+    margin-left:auto;
+}
+
+#searchBar{
+    margin-left: 10px;
+}
+
+#list {
+    text-align: initial;
+    font-size: 20px;
+}
+
+#adviceTitle {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: initial;
+}
+
+.bi {
+    margin: 0px;
+}
+
+#prev{
+    float:left;
+}
+
+#next{
+    float:right;
+}
+
+#filterByCategoryDiv {
+    display:flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.editButton:hover {
+    background-color: #188d6d;
+}
+
+.deleteButton:hover {
+    background-color: #962a2a;
+}
+
+#collabButtons {
+    padding: 20px;
+}
+
+#collabIncomes{
+    padding: 10px;
+}
+
+#createIncomeButton{
+    margin-bottom:15px;
+    margin-top:-5px;
+}
+
+#incomesPB {
+    display: inline-block;
+    max-width: 30%;
+    margin: 5px;
+}
+
+#incomeSumPB {
+    display: inline-block;
+    max-width: 30%;
+    margin: 5px;
+}
+
+#incomeButtonsPB {
+    display: inline-block;
+    max-width: 30%;
+    margin: 5px;
+}
+
+#cancelIncomePB {
+    background: #f3efef;
+    margin-right: 2px;
+}
+
+#pbIncomeDiv {
+    padding:5px;
+}
+
+.pagesHeader {
+    display: inline-flex;
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 30px;
+    margin-right: 20px;
+    width: 80%;
+    justify-content: space-between;
+}
+
+
+.pagesHeaderPB {
+    display: inline-flex;
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 30px;
+    margin-right: 20px;
+    width: 95%;
+    justify-content: space-between;
+}
+
+
+#filterSelect{
+    width:25%;
+}
+
+#filterLabel{
+    font-size:20px;
+}
+
+.wrapper {
+    font-family: serif;
+}
+
+#registerButtons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.headerButtons {
+    display: flex;
+    margin-left: auto;
+}
+
+#addSpendingButton{
+    margin-right:5px;
+}
+
+#spendingCategoryButtons {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+#cancelSpendingCategoryButton{
+    margin-right:15px;
+}
+
+#categoryLabel {
+   
+    font-size: 24px;
+    margin: 13px;
+}
+
+#spendingCategoryFormDiv{
+    display:flex;
+    justify-content:center;
+}
+
+.spendingDetails{
+    display:flex;
+    justify-content:space-around;
+    font-size:17px;
+}
+
+.logout {
+    background-color: #f6dfd563;
+    border-color: #e6dbcc;
+}
+
+.logout:hover {
+        background-color: #f5eee5;
+}
+
+
+#logo{
+    max-width:26px;
+}
+
+
+#incomesContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-header {
+    background-color: #ddd0fb;
+}
+
+.spendingInfo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.spendingButtons {
+    display: flex;
+    justify-content:end;
+}
+
+.spendingDescription::first-letter {
+    text-transform: uppercase;
+}
+
+.pagesHeaderSpendings {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-left: 50px;
+    margin-right: 40px;
+    justify-content: space-between;
+}
+
+#personalPiggyBanks {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+#searchCollaboratorLabel{
+    font-size:25px;
+}
+
+#spendingForm > div > label{
+    width:140px;
+}
+
+#incomeForm > div > label {
+    width: 140px;
+}
+
+#tableDiv {
+    display: flex;
+    justify-content: center;
+}
+
+
+#personalPiggyBanks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 5px;
+}
+
+#collabPBGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 5px;
+}
+
+#chartsContainer{
+    display:flex;
+}
+
+
+#wrapper-pieChart{
+    width:90%;
+}
+
+
+#wrapper-barChart {
+    width: 50%;
+}
+
+#stocksAndAdvice {
+    display: flex;
+    align-items: center;
+}
+
+#stockContainer{
+    width:95%
+}

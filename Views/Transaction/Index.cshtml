@@ -1,0 +1,175 @@
+﻿@using Newtonsoft.Json;
+@using EWallet.Common.Enums
+@model EWallet.BusinessLogic.Implementation.Transactions.ViewModel.DisplayTransactionViewModel
+
+
+@{
+    ViewData["Title"] = "Income";
+}
+
+<link rel="stylesheet" href="~/css/charts.css" />
+
+<div class="text-center">
+    <h1 class="display-4">All your active transactions</h1>
+
+    
+
+    <div id="transactionContainer">
+        @if (Model.TransactionViewModels.Count != 0)
+        {
+            ViewData["TotalPages"] = Model.TotalPages;
+
+            <div id="filterByCategoryDiv">
+                <label id="filterLabel">Filter by category</label>
+                <select class="form-select" id="filterSelect" onchange="filterChange(this)"
+                        asp-items="@Model.TansactionCategories">
+                    <option selected="true" disabled="true"> Select...</option>
+                </select>
+            </div>
+
+            <div id="tableDiv">
+            <table id="transactionTable" class=" table  table-bordered  table-hover ">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Transaction Amount</th>
+                        <th scope="col">Transaction Date</th>
+                        <th scope="col">Transaction Time</th>
+                        <th scope="col">Transaction Type</th>
+                        <th scope="col">User</th>
+
+
+                    </tr>
+                    @for (var index = 0; index < Model.TransactionViewModels.Count; index++)
+                    {
+                        var item = Model.TransactionViewModels[index];
+                        <tr id="transaction@(index)" class="transactions">
+                            <td>@(
+                            index + 10 * (Model.PageIndex - 1)
+                                )</td>
+                            <td>@item.TrasactionSum</td>
+                            <td>@item.TrasactionDate</td>
+                            <td>@item.TransactionTime</td>
+
+                            @if (item.IncomeId != null)
+                            {
+                                <td>Income </td>
+                            }
+                            else if (item.SpendingId != null)
+                            {
+                                <td>Spending </td>
+                            }
+
+                            else if (item.PiggyBankId != null)
+                            {
+                                <td>Saving </td>
+                            }
+
+                            <td>@item.Username</td>
+
+                        </tr>
+
+                    }
+            </table>
+            </div>
+
+
+            <div id="transactionSideBar">
+
+                             
+                    <div id="upcomingIncomes">
+                        <span id="upcomingIncomesText">Upcoming incomes </span>
+                    </div>
+        
+
+             
+                    <div id="upcomingSpendings">
+                        <span id="upcomingSpendingsText">Upcoming spendings </span>
+                    </div>
+             
+
+            </div>
+
+
+
+            <div>
+
+                 @{
+                    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+
+                  }
+
+                @*Button for Previous*@
+
+            <button type="button" id="prev" class="btn btn-primary @(prevDisabled)" onclick="window.location.href = '@Url.Action("Index",
+    new { pageNumber = Model.PageIndex - 1 ,  sortOrder=@ViewData["CurrentSort"],sortFilter=@ViewData["CurrentFilter"],
+    categoryFilter=@ViewData["CurrentCategory"]})'">
+                <i class="bi bi-arrow-left"></i>Previous
+            </button>
+
+                @*Button for Sum Sort Asc*@
+                <button type="button" class="btn btn-primary" onclick="window.location.href = '@Url.Action("Index",
+    new { pageNumber = Model.PageIndex, sortOrder=(int)SortTypes.Ascending, sortFilter=(int)SortFilters.Sum,categoryFilter=@ViewData["CurrentCategory"]})'">
+                <i class="bi bi-sort-up"></i> Sort up
+                </button>
+
+                @*Button for Sum Sort Desc*@
+                <button type="button" class="btn btn-primary" onclick="window.location.href = '@Url.Action("Index",
+    new { pageNumber = Model.PageIndex, sortOrder=(int)SortTypes.Descending ,sortFilter=(int)SortFilters.Sum, categoryFilter=@ViewData["CurrentCategory"] })'">
+                <i class="bi bi-sort-down"></i> Sort down
+                </button>
+
+
+                @*Button for Date Sort Asc*@
+                <button type="button" class="btn btn-primary" onclick="window.location.href = '@Url.Action("Index",
+    new { pageNumber = Model.PageIndex, sortOrder=(int)SortTypes.Descending, sortFilter=(int)SortFilters.Date,categoryFilter=@ViewData["CurrentCategory"]})'">
+                    Latest
+                </button>
+
+
+                @*Button for Date Sort Desc*@
+                <button type="button" class="btn btn-primary" onclick="window.location.href = '@Url.Action("Index",
+    new { pageNumber = Model.PageIndex, sortOrder=(int)SortTypes.Ascending ,sortFilter=(int)SortFilters.Date, categoryFilter=@ViewData["CurrentCategory"] })'">
+                    Oldest
+                </button>
+
+
+                    @*Button for Next*@
+
+                    <button type="button" id="next" class="btn btn-primary @(nextDisabled)" onclick="window.location.href = '@Url.Action("Index",
+    new { pageNumber = Model.PageIndex + 1 ,  sortOrder=@ViewData["CurrentSort"],sortFilter=@ViewData["CurrentFilter"],
+    categoryFilter=@ViewData["CurrentCategory"]})'">
+                    Next<i class="bi bi-arrow-right"></i>
+                    </button>
+
+                
+
+
+            </div>
+        }
+
+    <script>
+        function getTransactions() {
+            return @Html.Raw(JsonConvert.SerializeObject(Model.TransactionViewModels));
+        }
+    </script>
+
+   
+
+
+    <script>
+        function filterChange(selectElement) {
+
+            var selectedValue = selectElement.value;
+            var url = '@Url.Action("Index", new { pageNumber = Model.PageIndex, sortOrder = ViewData["CurrentSort"], sortFilter = ViewData["CurrentFilter"] })';
+            url += '&categoryFilter=' + selectedValue;
+
+            window.location.href = url;
+        }
+
+    </script>
+
+        <script src="~/js/upcomingSpendings.js" defer asp-append-version="true"></script>
+        <script src="~/js/upcomingIncomes.js" defer asp-append-version="true"></script>
+
